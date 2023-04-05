@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="flex.styles.css">
+    <link rel="stylesheet" href="grid.styles.css">
+    <title>Grid Practice</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#flex">Flexbox Refresher</a></li>
+                <li><a href="#flex-example">A Common Flexbox Layout</a></li>
+                <li><a href="#grid">Intro to Grid</a></li>
+                <li><a href="#grid-example">A Common Grid Layout</a></li>
+                <li><a href="#flex-grid">Flex vs. Grid</a></li>
+                <li><a href="#form-example">Form Example</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="content">
+            <h1 id="flex">Flexbox Refresher</h1>
+            <p>There are two systems we can use for layouts that are built into CSS and are the backbone of CSS
+                frameworks like Bootstrap and Tailwind. The first one we became introduced to was Flexbox: the "flexible
+                box" module that <span><a rel="noopener" href="https://www.w3.org/TR/css-flexbox/" target="_blank"> was added to the
+                        W3C standard in 2017</a></span>. Flexbox aims at allowing an easier way to distribute space
+                around items in a container, and allows these items to have a flexible size that can grow and shrink as
+                the container size changes. Flexbox is great if you want more control over the parts of a container or
+                div.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">Item 1</div>
+                <div class="flex-item">Item 2</div>
+                <div class="flex-item">Item 3</div>
+            </div>
+
+            <p>In the div above, our item boxes live inside a flex-container. This container allows us to play around
+                with the space between its contents. I gave the container a border for better visualization, and I gave
+                it a padding of 1 times the size of the root element's font. I didn't want my flex items inside of the
+                container to touch, so I justified the content around the x-axis so that there's even space
+                <b>around</b> them, even against the edges of the container.</p>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="../assets/flex-container-example.jpeg"
+                    alt="code snippet for flex-container">
+                <figcaption>
+                    The paired CSS classes that give us the appropriate stylings based on our flex containers.
+                </figcaption>
+            </figure>
+
+            <p>You can also see that there is more than one flex container. The boxes themselves are flex containers! Yo
+                dawg, I heard you like flex containers, so I put flex containers inside your flex containers.</p>
+
+        </article>
+
+        <article class="content">
+            <h1 id="flex-example">A Common Flexbox Layout</h1>
+            <p>A common use case for flexboxes/flexible containers tends to be navigation. A navbar displays buttons,
+                links, and content in a horizontal line along the top of your viewport, so if you want to align and
+                position those elements along that horizontal line in even/unique ways, flexbox helps with that
+                perfectly.</p>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="assets/nav-code-example.jpeg" alt="code snippet for the navbar">
+                <figcaption>
+                    The current code for our page's navigation
+                </figcaption>
+            </figure>
+
+            <p>Let's take our plain navbar from the top of the page and adjust it so that it's using our flex
+                properties.</p>
+
+            <nav class="flex-nav">
+                <ul id="flex-nav--1">
+                    <li><a href="#flex">Flexbox Refresher</a></li>
+                    <li><a href="#flex-example">A Common Flexbox Layout</a></li>
+                    <li><a href="#grid">Intro to Grid</a></li>
+                    <li><a href="#grid-example">A Common Grid Layout</a></li>
+                    <li><a href="#flex-grid">Flex vs. Grid</a></li>
+
+                </ul>
+            </nav>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="assets/flex-nav-1-example.jpeg" alt="code snippet for flex navigation">
+                <figcaption>
+                    The paired CSS class that targets our <code>nav</code> element and makes the <code>ul</code> element
+                    a flex container.
+                </figcaption>
+            </figure>
+
+            <p>In the CSS above, you can see how placing our list items inside a flex container (our <code>ul</code>
+                element) allowed us to space things around. Now let's add additional styling to make it look less like a
+                list and more like a navbar.</p>
+
+            <nav class="flex-nav">
+                <ul id="flex-nav--2">
+                    <li><a href="#flex">Flexbox Refresher</a></li>
+                    <li><a href="#flex-example">A Common Flexbox Layout</a></li>
+                    <li><a href="#grid">Intro to Grid</a></li>
+                    <li><a href="#grid-example">A Common Grid Layout</a></li>
+                    <li><a href="#flex-grid">Flex vs. Grid</a></li>
+
+                </ul>
+            </nav>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="assets/flex-nav-2-example.jpeg" alt="code snippet for flex navigation">
+                <figcaption>
+                    The paired CSS classes that targets our <code>nav</code> element and makes the <code>ul</code>
+                    element a flex container. Additional styles added.
+                </figcaption>
+            </figure>
+
+            <p>This block of code may seem excessive, but it's essentially just changing the colors and widths of the
+                items inside the flex container. And we have flex containers inside flex containers again, so that our
+                text from our anchor tag is in the middle of its container, too.</p>
+
+        </article>
+
+        <!-- GRID -->
+
+        <article class="content">
+            <h1 id="grid">Intro to Grid</h1>
+            <p>The grid layout is the superior alternative to table layouts, in which items on a viewport are positioned
+                as boxes in rows or columns, aka grids. <span><a rel="noopener"
+                        href="https://www.w3.org/TR/2020/CRD-css-grid-1-20201218/" title="w3 grid layout docs"
+                        target="_blank">Click here to read more on W3's specifications</a></span>. </p>
+
+            <p>Grid layouts work better for larger areas where you want to define more intricate sections or web parts.
+                For example, you have more flexibility with side menus by using a grid layout:</p>
+
+            <figure class="code-figures">
+                <img class="code-snippets"
+                    src="https://www.w3.org/TR/2020/CRD-css-grid-1-20201218/images/flex-layout.png"
+                    alt="layout with flex">
+                <figcaption>
+                    Figure 1: Flex Layout
+                </figcaption>
+            </figure>
+
+            <figure class="code-figures">
+                <img class="code-snippets"
+                    src="https://www.w3.org/TR/2020/CRD-css-grid-1-20201218/images/grid-layout.png"
+                    alt="layout with grid">
+                <figcaption>
+                    Figure2: Grid Layout
+                </figcaption>
+            </figure>
+
+            <p>Figure 1 displays a standard flex flow while figure 2 allows boxes to take up certain lengths of rows and
+                columns.</p>
+
+            <p>Just like how we can define a flex container, we can define a grid container that can hold columns and
+                rows. We can either explicitly state how many columns and rows we want in our grid, or we can make
+                things more flexible and automated.</p>
+
+            <div class="grid-container">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+            </div>
+
+            <p><code>grid-template-columns</code> can tell us how many columns we want, and the same goes for
+                <code>grid-template-rows</code></p>
+
+            <div id="example-grid">
+                <div id="grid-1">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                </div>
+
+                <figure class="code-figures">
+                    <img class="code-snippets" src="assets/grid-template-columns-example.jpeg"
+                        alt="grid-template-columns-example">
+                    <figcaption>
+                        Current code to get 3 explicit columns. Also, this example is currently inside a grid that has a
+                        bit of overlap!!
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p>To make things fit a bit better, we can use a more flexible unit than just pixels. <code>fr</code> stands
+                for "fractional unit", and it allows us to work with fractions, or percentages of our containers</p>
+
+            <figure class="code-figures">
+                <div id="grid-2--without-fr">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                </div>
+                <figcaption>Without fractions, things aren't very responsive and the columns do not evenly take up the
+                    width of the container</figcaption>
+            </figure>
+
+            <figure class="code-figures">
+                <div id="grid-2--with-fr">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                </div>
+                <figcaption>With fractions, I'm specifying that my grid items will be a percentage of my container, and
+                    as my container changes, the items adjust.</figcaption>
+            </figure>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="assets/grid-fr-example.jpeg" alt="grid example with fr units">
+                <figcaption>The <code>grid-template-columns</code> property specifies that I want 3 rows that are each
+                    taking up 1 fraction of the container. You can change one of the units to make wider columns!
+                </figcaption>
+            </figure>
+
+            <p>If you have a large grid with many tracks (these spaces between any two lines on the grid), you can use
+                the <code>repeat()</code> notation</p>
+
+            <figure class="code-figures">
+                <img class="code-snippets" src="assets/grid-repeat-example.jpeg"
+                    alt="grid example with repeat notation">
+                <figcaption>The <code>repeat</code> notation does the same as the code above. First argument is how many
+                    columns you want, and 2nd argument is how many spaces they should take up.</figcaption>
+            </figure>
+
+            <p>You can still create columns with different widths by combining the repeat notation with explicit units
+            </p>
+
+            <figure class="code-figures">
+                <div id="grid-3">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                    <div class="grid-item">Item 6</div>
+                    <div class="grid-item">Item 7</div>
+                    <div class="grid-item">Item 8</div>
+                    <div class="grid-item">Item 9</div>
+                    <div class="grid-item">Item 10</div>
+                </div>
+
+                <img class="code-snippets" src="assets/grid-implicit-explicit-columns-example.jpeg"
+                    alt="using implicit and explicit columns with grid">
+
+                <figcaption>With this code, I have 10 items in my grid container. I want the first column to have a
+                    width of a third of the container, then I want to repeat 3 columns with a width of one fraction of
+                    the container, then I want my last column to once again be a third of the container.</figcaption>
+            </figure>
+        </article>
+
+        <article class="content">
+            <h1 id="grid-example">A Common Grid Layout</h1>
+            <p>Most websites have a variation of a layout with headers, navigation, sidebars, main content, advertising,
+                and footers. In order to have dedicated sections that can respond nicely to different screen
+                resolutions, grid works best for organizing this content.</p>
+
+            <div class="wrapper">
+                <header class="main-head">The header</header>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#flex">Flexbox Refresher</a></li>
+                        <li><a href="#grid">Intro to Grid</a></li>
+                        <li><a href="#flex-grid">Flex vs. Grid</a></li>
+                    </ul>
+                </nav>
+
+                <article class="grid-content">
+                    <h1>Main article area</h1>
+                    <p>In this layout, we display the areas in source order for any screen less than 500 px wide. We go
+                        to a two column layout, and then to a three.</p>
+                </article>
+
+                <aside class="side">Sidebar</aside>
+                <div class="ad">Advertising</div>
+                <footer class="main-footer">The footer</footer>
+            </div>
+
+            <p>You can create <code>grid areas</code> that allow you to define a space and paired with the
+                <code>grid-template-areas</code> property, lay out how you want your areas organized. Tie this with
+                media queries and you have an easily responsive layout!</p>
+            <p><a rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas"
+                    title="MDN grid template areas" target="_blank">Click here</a> to learn more about grid template
+                areas and how you can create more advance grid layouts.</p>
+
+        </article>
+
+        <article class="content">
+            <h1 id="flex-grid">Flex vs. Grid</h1>
+             <p>Discussion time!</p> 
+            <p>How would you describe the differences between flexbox and grid? How can you use them to work together? Do you think you enjoy one over the other?</p>
+
+        </article>
+
+</body>
+
+</html>
